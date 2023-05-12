@@ -1,12 +1,12 @@
-export const STORAGE_KEY = 'ea.talenttest';
+export const STORAGE_KEY = 'ea.omr';
 
-export const GetStorageKeyPrefix = (state: string): string => `${STORAGE_KEY}${state.toLowerCase()}`;
+export const GetStorageKeyPrefix = (): string => `${STORAGE_KEY}`;
 
-export const GetStorageKey = (state: string, key: string): string => `${GetStorageKeyPrefix(state)}.${key.toLowerCase()}`;
+export const GetStorageKey = (key: string): string => `${GetStorageKeyPrefix()}.${key.toLowerCase()}`;
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-const GetItem = (state: string, key: string): any => {
-  const storageKey = GetStorageKey(state, key);
+const GetItem = (key: string): any => {
+  const storageKey = GetStorageKey( key);
   const value = sessionStorage.getItem(storageKey);
   if (value && value.length > 0) {
     return JSON.parse(value);
@@ -15,21 +15,21 @@ const GetItem = (state: string, key: string): any => {
 };
 
 // eslint-disable-next-line  @typescript-eslint/no-explicit-any
-const SetItem = (state: string, key: string, value: any): void => {
-  const storageKey = GetStorageKey(state, key);
+const SetItem = (key: string, value: any): void => {
+  const storageKey = GetStorageKey(key);
   if (key) {
     sessionStorage.setItem(storageKey, JSON.stringify(value));
   }
 };
 
-const RemoveItem = (state: string, key: string): void => {
-  const storageKey = GetStorageKey(state, key);
+const RemoveItem = (key: string): void => {
+  const storageKey = GetStorageKey(key);
   sessionStorage.removeItem(storageKey);
 };
 
-const ClearAll = (state: string): void => {
+const ClearAll = (): void => {
   const keys: string[] = [];
-  const storageKeyPrefix = GetStorageKeyPrefix(state);
+  const storageKeyPrefix = GetStorageKeyPrefix();
 
   for (let i = 0; i < sessionStorage.length; i++) {
     const key = String(sessionStorage.key(i));

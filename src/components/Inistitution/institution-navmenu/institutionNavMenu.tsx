@@ -25,7 +25,7 @@ import PhoneIcon from "@mui/icons-material/Phone";
 import EmailIcon from "@mui/icons-material/Email";
 import React from "react";
 import { TopNav } from "../../common/top-nav/top-nav";
-const drawerWidth = 240;
+const drawerWidth = 207;
 
 export const InstitutionNavMenu: FunctionComponent = () => {
    /*const NaatLogo = require(`../../../../public/sat-logo.jpg`).default;*/
@@ -128,7 +128,7 @@ export const InstitutionNavMenu: FunctionComponent = () => {
                 <PhoneIcon />
               </ListItemIcon>
 
-                          <ListItemText primary={"+91 8143033430"} />
+                          <ListItemText primary={"8143033430"} />
                       </ListItem>
                      
             {/*<ListItem>*/}

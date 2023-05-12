@@ -2,8 +2,8 @@
 
 export class CommonConstants {
   public static readonly BaseAddress =
-    //"https://omrapi.azurewebsites.net/api";
-    "http://localhost:7270/api";
+    "https://omrapi.azurewebsites.net/api";
+ //  "http://localhost:7270/api";
 
   public static readonly UserTokenKey = "authenticate_user";
 
@@ -28,6 +28,7 @@ export class CommonConstants {
       "/Institution/GetStudentInfo";
     public static readonly InstitutionListItem = "/Institution/ListItems";
     public static readonly StudentList = "/Student/List";
+    public static readonly InstitutionSession = "/Institution/Session";
    // public static readonly InstitutionBatchList = "Institution/{institutionId}/BatchList";
   };
 
@@ -35,5 +36,10 @@ export class CommonConstants {
     public static readonly cookieKey = "authenticate_user";
     public static readonly cookieExpiry = 5;
     public static readonly Program = "APPUSMA";
+  };
+
+  public static readonly SessionKey = class {
+    public static readonly batchDetails = "batch-details";
+    public static readonly instituteProfile = "institute-profile";
   };
 }

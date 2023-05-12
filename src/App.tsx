@@ -33,7 +33,7 @@ export default function App() {
           <Route path="/institute/Profile" element={<InistitutionProfile />} />
           <Route path="/institute/UploadStudents" element={<InistituteStudentUpload />} />
           <Route path="/institute/OMRResults" element={<InistituteOMRResults />} />
-          <Route path="/institute/OMRList" element={<InistituteOMRList BatchId={""} BatchName={""} BatchStatus={""} />} />
+          <Route path="/institute/batch/:batchId/omrlist" element={<InistituteOMRList />} />
           <Route path="/Student/Home" element={<StudentHome />} />
           <Route path="/Student/Exam" element={<StudentExam />} />
           <Route path="/institute/BatchList" element={<InistituteBatchList />} />

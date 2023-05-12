@@ -1,21 +1,18 @@
+import { IOmrBatchDetails } from "../../common/models/omrModels";
+
 export interface IInstitutionProfile {
-    name: string;
-    type: string;
-    boardType: string;
-    firstToFiveStudentStrength: string;
-    sixToTenthStudentStrength: string;
-    coCurricularActivities: string;
-    address: string;
-    state: string;
-    district: string;
-    contactName: string;
-    email: string;
-    mobile: string;
-    coOrdinatorName: string;
-    coOrdinatorEmail: string;
-    coOrdinatorMobile: string;
-    code: string;
-    coCurriculum: string;
-    program: string;
-    userName: string;
+  userName: string;
+  name: string;
+  address: string;
+  city: string;
+  state: string;
+  contactName: string;
+  contactNumber1: string;
+  contactNumber2: string;
+  contactEmail: string;
+}
+
+export interface IInstitutionSession {
+  profile: IInstitutionProfile;
+  batchDetails: IOmrBatchDetails[];
 }
