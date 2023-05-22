@@ -89,7 +89,6 @@ export const FacilitatorInstitutionsList: FunctionComponent = (props) => {
   };
   const getValue = (inputSelector : any) => {
     var text = document.querySelector(inputSelector).value;
-    debugger;
     switch (text) {
       case 'none':
         return;

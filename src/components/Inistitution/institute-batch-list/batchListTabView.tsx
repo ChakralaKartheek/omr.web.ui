@@ -95,7 +95,6 @@ export const InistituteBatchListTabView: FunctionComponent<
     if (batchDetails != null) {
       InstitutionService.getOmrList(tokenUser.UserId, batchDetails.batchId)
         .then((res) => {
-          debugger;
           if (res.status !== 200) {
             toast.error("Error in retriving batch list");
           }
@@ -134,7 +133,6 @@ export const InistituteBatchListTabView: FunctionComponent<
         formData
       )
         .then((res) => {
-          debugger;
           if (res.status != 200) {
             toast.error("Error in uploading omrs");
           }
@@ -151,7 +149,6 @@ export const InistituteBatchListTabView: FunctionComponent<
   const deleteOmr = ( omrFile: IOmrFile) => {
     InstitutionService.deleteOmr(tokenUser.UserId, omrFile.fileId)
       .then((res) => {
-        debugger;
         if (res.status !== 200) {
           toast.error('error in delete omr');
         }
@@ -163,6 +160,7 @@ export const InistituteBatchListTabView: FunctionComponent<
       });
   };
   return (
+    <> 
     <Box
       sx={{
         flexGrow: 1,
@@ -173,6 +171,7 @@ export const InistituteBatchListTabView: FunctionComponent<
         paddingRight: 0,
       }}
     >
+      
       <Tabs
         orientation="vertical"
         variant="scrollable"
@@ -182,17 +181,19 @@ export const InistituteBatchListTabView: FunctionComponent<
         aria-label="Vertical tabs example"
         sx={{ borderRight: 1, borderColor: "divider" }}
       >
+      
         {batchList.map((batch: IOmrBatchDetails, index: number) => (
           <Tab label={batch.batchName} {...a11yProps(index)} />
         ))}
       </Tabs>
+     
       {batchList.map((batch: IOmrBatchDetails, index: number) => (
         <TabPanel value={value} index={index}>
           <div>
             <Grid container spacing={2}>
               <Grid
                 item
-                xs={10}
+                xs={8}
                 sx={{ paddingTop: 0 }}
                 style={{ paddingTop: 0 }}
               >
@@ -200,14 +201,22 @@ export const InistituteBatchListTabView: FunctionComponent<
               </Grid>
               <Grid
                 item
-                xs={2}
+                xs={4}
                 sx={{ paddingTop: 0 }}
                 style={{ paddingTop: 0 }}
-              >
+              >  <Button
+                  variant="outlined"
+                  component="label"
+                  sx={{ alignContent: "flex-start" }}
+                  startIcon={<AddIcon />}
+                >
+                  Add Batch
+                  
+                </Button>
                 <Button
                   variant="contained"
                   component="label"
-                  sx={{ alignContent: "end" }}
+                  sx={{ alignContent: "flex-end", marginLeft:"25px" }}
                   startIcon={<AddIcon />}
                 >
                   Add Files
@@ -219,6 +228,7 @@ export const InistituteBatchListTabView: FunctionComponent<
                     onChange={handleUpload}
                   />
                 </Button>
+              
               </Grid>
             </Grid>
           </div>
@@ -230,5 +240,6 @@ export const InistituteBatchListTabView: FunctionComponent<
         </TabPanel>
       ))}
     </Box>
+    </>
   );
 };
