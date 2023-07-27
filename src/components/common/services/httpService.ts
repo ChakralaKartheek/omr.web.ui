@@ -60,12 +60,13 @@ export class HTTPService {
 
     try {
       const headers = {
-        authenticate_user: CookieHelper.get(CommonConstants.UserTokenKey)??"",
-            };
+        'authenticate_user': CookieHelper.get(CommonConstants.UserTokenKey) ?? '',
+        
+      };
       const response = await axios.post(encodedURL, data, {
-         withCredentials: true,
-         headers: headers,
-         ...options,
+        headers: headers,
+        withCredentials: true,
+        ...options,
       });
       return onSuccess(response, this.httpOptions);
     } catch (error) {

@@ -90,10 +90,10 @@ export const LoginFieldSet: FunctionComponent<
         .then((result) => {
           if(result.status !== 200){
             toast.error(
-              `Error occurred while login`
+             `Invalid Credentials`
             )
           }
-          if (result.data) {
+         else if (result.data) {
             TokenUserHelper.Save(result.data);
             const tokenUser = TokenUserHelper.Get();
             console.log(tokenUser);

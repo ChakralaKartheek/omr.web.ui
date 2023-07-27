@@ -2,8 +2,8 @@
 
 export class CommonConstants {
   public static readonly BaseAddress =
-    "https://omrapi.azurewebsites.net/api";
- //  "http://localhost:7270/api";
+ //  "https://omrapi.azurewebsites.net/api";
+   "http://localhost:7270/api";
 
   public static readonly UserTokenKey = "authenticate_user";
 

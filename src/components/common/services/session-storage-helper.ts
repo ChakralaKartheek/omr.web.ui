@@ -4,7 +4,7 @@ export const GetStorageKeyPrefix = (): string => `${STORAGE_KEY}`;
 
 export const GetStorageKey = (key: string): string => `${GetStorageKeyPrefix()}.${key.toLowerCase()}`;
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+
 const GetItem = (key: string): any => {
   const storageKey = GetStorageKey( key);
   const value = sessionStorage.getItem(storageKey);
@@ -14,7 +14,7 @@ const GetItem = (key: string): any => {
   return null;
 };
 
-// eslint-disable-next-line  @typescript-eslint/no-explicit-any
+
 const SetItem = (key: string, value: any): void => {
   const storageKey = GetStorageKey(key);
   if (key) {
